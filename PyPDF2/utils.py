@@ -56,7 +56,7 @@ Str = getattr(builtins, "basestring", str)
 
 #custom implementation of warnings.formatwarning
 def formatWarning(message, category, filename, lineno, line=None):
-    file = filename.replace("/", "\\").rsplit("\\", 1)[1] # find the file name
+    file = filename.replace("/", "\\").rsplit("\\", 1).pop() # find the file name
     return "%s: %s [%s:%s]\n" % (category.__name__, message, file, lineno)
 
 def readUntilWhitespace(stream, maxchars=None):
